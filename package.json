@@ -1,9 +1,13 @@
 {
   "name": "ts_playwright",
   "version": "1.0.0",
-  "description": "",
+  "description": "This folder contains the test scripts for test automation of website https://www.saucelabs.com/\r Scripting language - Typescript",
   "main": "index.js",
-  "scripts": {"test": "NODE_OPTIONS=--max-old-space-size=2048 npx playwright test"},
+  "scripts": {
+    "test": "NODE_OPTIONS=--max-old-space-size=2048 npx playwright test",
+    "heroku": "playwright test tests/herukoflow.spec.ts --project=chromium --headed",
+    "amazon": "playwright test tests/amazonflow.spec.ts --project=chromium --headed"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -11,5 +15,16 @@
   "devDependencies": {
     "@playwright/test": "^1.60.0",
     "@types/node": "^25.9.1"
-  }
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Saurabh-python/Playwright_Testing.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Saurabh-python/Playwright_Testing/issues"
+  },
+  "homepage": "https://github.com/Saurabh-python/Playwright_Testing#readme"
 }

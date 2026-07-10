@@ -1,11 +1,14 @@
-import{test} from '@playwright/test';
+import{test, expect} from '@playwright/test';
 
 test('launch saucedemo', async ({ page }) => {
     await page.goto('https://www.saucedemo.com');
-    await page.pause() //This will open play inspector
-    await page.locator('#user-name').fill('standard_user');
-    await page.locator('[placeholder="Password"]').fill('secret_sauce');
-    await page.locator('#login-button').click();
+    // await page.pause() This will open play inspector
+    // await page.locator('#user-name').fill('standard_user');
+    // await page.locator('[placeholder="Password"]').fill('secret_sauce');
+    // await page.locator('#login-button').click();
+    await expect(page).toHaveURL('https://www.saucedemo.com/');
+    await expect(page).toHaveTitle('Swag Labs');
+
     
 });
 

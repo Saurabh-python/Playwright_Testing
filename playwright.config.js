@@ -13,6 +13,9 @@ import { defineConfig, devices } from '@playwright/test';
  * @see https://playwright.dev/docs/test-configuration
  */
 export default defineConfig({
+  // globalTimeout: 60000,
+  /* Maximum time one test can run for. */
+  timeout: 30 * 1000,
   testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: false,
@@ -21,32 +24,33 @@ export default defineConfig({
   /* Retry on CI only */
   retries: process.env.CI ? 1 : 1,
   /* Opt out of parallel tests on CI. */
-  workers:  1 /*process.env.CI ? 1 : undefined*/,
+  workers: 1 /*process.env.CI ? 1 : undefined*/,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
+    screenshot: "off",
     /* Base URL to use in actions like `await page.goto('')`. */
     // baseURL: 'http://localhost:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
     launchOptions: {
-      args:[
+      args: [
         '--disable-dev-shm-usage',
         '--disable-gpu',
         '--no-sandbox',
         '--disable-software-rasterizer',
       ]
-    }     
-      
+    }
+
   },
 
   /* Configure projects for major browsers */
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome']},
+      use: { ...devices['Desktop Chrome'] },
     },
 
     // {
