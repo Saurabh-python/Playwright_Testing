@@ -1,0 +1,39 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: ProductPage.spec.ts >> Sauce Homepage
+- Location: Sauce_TCs\ProductPage.spec.ts:3:5
+
+# Error details
+
+```
+Error: expect(page).toHaveURL(expected) failed
+
+Expected: "https://www.saucedemo.com/inventory.html"
+Received: "about:blank"
+Timeout:  5000ms
+
+Call log:
+  - Expect "toHaveURL" with timeout 5000ms
+    13 × unexpected value "about:blank"
+
+```
+
+# Test source
+
+```ts
+  1 | import {test, expect, Page} from '@playwright/test';
+  2 | 
+  3 | test('Sauce Homepage', async({page})=>{
+  4 |     const inventory_title = 'Swag Labs';
+> 5 |     await expect(page).toHaveURL('https://www.saucedemo.com/inventory.html');
+    |                        ^ Error: expect(page).toHaveURL(expected) failed
+  6 |     await expect(page).toHaveTitle(inventory_title);
+  7 |     
+  8 | })
+```

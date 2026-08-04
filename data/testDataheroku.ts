@@ -6,3 +6,10 @@ export class TestData {
     }
 
 }
+
+export class SauceData{
+    static Data(){
+        return [{TestId: 'TC001', Username: 'standard_user', Password: 'secret_sauce', name:'Saurabh', lname:'Pandey', pcode:'123456'}
+        ]
+    }
+}

@@ -6,7 +6,8 @@
   "scripts": {
     "test": "NODE_OPTIONS=--max-old-space-size=2048 npx playwright test",
     "heroku": "playwright test tests/herukoflow.spec.ts --project=chromium --headed",
-    "amazon": "playwright test tests/amazonflow.spec.ts --project=chromium --headed"
+    "amazon": "playwright test tests/amazonflow.spec.ts --project=chromium --headed",
+    "sauce": "playwright test Sauce_TCs/SauceLogin.spec.ts --project=chromium --headed"
   },
   "keywords": [],
   "author": "",
@@ -14,7 +15,9 @@
   "type": "commonjs",
   "devDependencies": {
     "@playwright/test": "^1.60.0",
-    "@types/node": "^25.9.1"
+    "@types/node": "^25.9.1",
+    "allure-playwright": "^3.10.2",
+    "chalk": "^5.6.2"
   },
   "directories": {
     "test": "tests"
@@ -26,5 +29,8 @@
   "bugs": {
     "url": "https://github.com/Saurabh-python/Playwright_Testing/issues"
   },
-  "homepage": "https://github.com/Saurabh-python/Playwright_Testing#readme"
+  "homepage": "https://github.com/Saurabh-python/Playwright_Testing#readme",
+  "dependencies": {
+    "dotenv": "^17.4.2"
+  }
 }

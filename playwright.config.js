@@ -16,7 +16,7 @@ export default defineConfig({
   // globalTimeout: 60000,
   /* Maximum time one test can run for. */
   timeout: 30 * 1000,
-  testDir: './tests',
+  testDir: './Sauce_TCs',
   /* Run tests in files in parallel */
   fullyParallel: false,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -34,8 +34,9 @@ export default defineConfig({
     // baseURL: 'http://localhost:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
+    trace: 'on',
     launchOptions: {
+      // slowMo: 500,
       args: [
         '--disable-dev-shm-usage',
         '--disable-gpu',
