@@ -1,5 +1,5 @@
 import { chromium, test, expect, request } from '@playwright/test';
-import fs from 'fs';
+// import fs from 'fs';
 
 //Below test setup browser , then its context and then pages
 test.skip('Browser envoke - Google', async () => {
@@ -43,7 +43,6 @@ test.skip('API TEST', async({request})=>{
   await console.log(await response.ok());
 })
 
-
 test.describe.skip('Group : 1', async()=>{
   test('Keyboard Actions', async({page})=>{
     await page.goto('https://testautomationpractice.blogspot.com/');
@@ -83,8 +82,6 @@ test.describe.skip('Group : 1', async()=>{
     console.log(`Upload Success:${success_msg}`);
   })
 })
-
-
 
 test.skip('JS Alert Handle', async({page})=>{
   await page.goto('https://the-internet.herokuapp.com/javascript_alerts');
