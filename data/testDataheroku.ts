@@ -13,3 +13,13 @@ export class SauceData{
         ]
     }
 }
+//jitni keys is array mei add krunga utni time framework multiple data sets ke sath chalega
+
+// ab jo bhi playwright interview hoga usme show kr skte isko
+// framework level pe ki maine bnaya hai
+// haa kyunki enterprise mei itni jaldi toh dete nhi framework k liye issey 
+// ye idea mil jayega ki framework ka structure samjhta hai banda
+
+// yes, and apni bhi overall understanding mast ho jayegi 
+// fixtures use krne se ek fayda aur hai apko baseclass ki jarurat nhi hai
+// ye aur dekhte jao

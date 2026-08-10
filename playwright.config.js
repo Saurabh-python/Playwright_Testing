@@ -16,20 +16,23 @@ export default defineConfig({
   // globalTimeout: 60000,
   /* Maximum time one test can run for. */
   timeout: 30 * 1000,
-  testDir: './Sauce_TCs',
+  expect:{timeout : 5000},
+  testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: false,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
-  retries: process.env.CI ? 1 : 1,
+  retries: process.env.CI ? 1 : undefined,
   /* Opt out of parallel tests on CI. */
-  workers: 1 /*process.env.CI ? 1 : undefined*/,
+  // workers: 2 /*process.env.CI ? 1 : undefined*/,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-    screenshot: "off",
+    screenshot: "only-on-failure",
+    video: 'retain-on-failure',
+    actionTimeout : 3000,
     /* Base URL to use in actions like `await page.goto('')`. */
     // baseURL: 'http://localhost:3000',
 
@@ -52,6 +55,7 @@ export default defineConfig({
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
+      // fullyParallel: true   -- This will run test parallel in chromium only
     },
 
     // {

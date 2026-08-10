@@ -11,7 +11,7 @@ test('Login To SauceDemo', async ({ page }) => {
     const Cart = new CartPage(page);
     const Checkout = new CheckInfo(page);
     const Checkout_confirmation = new CheckoutFinal(page);
-
+//ye wala without custom fixtures hai
 
     await Login.OpenSauceDemo();
     await Login.EnterUsername('standard_user');
