@@ -1,12 +1,12 @@
-import { Custom_test, expect } from '../custom_fixtures/basefixtures';
+import { My_test, expect } from '../custom_fixtures/basefixtures';
 import { SauceData } from '../data/testDataheroku';
 import { log } from '../logs/logger';
 
 
 const custom_data = SauceData.Data();
 for(const data of custom_data){
-    Custom_test('Test Scenario: Login To SauceDemo with User: ' + data.Username, async ({ loginpage_fixture,homepage_fixture, cartpage_fixture, 
-        checkinfo_fixture, checkfinal_fixture,page}) => {
+    My_test('Test Scenario: Login To SauceDemo with User: ' + data.Username, async ({ loginpage_fixture,
+        homepage_fixture,cartpage_fixture, checkinfo_fixture, checkfinal_fixture,page}) => {
         await log("log", "Executing Test Case: " + data.TestId);
         await loginpage_fixture.OpenSauceDemo();
         await loginpage_fixture.EnterUsername(data.Username);

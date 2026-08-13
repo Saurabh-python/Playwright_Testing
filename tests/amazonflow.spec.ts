@@ -1,20 +1,12 @@
-// import {test, expect} from '@playwright/test';
-// import chalk from 'chalk';
+import {test} from '@playwright/test';
 
-// test('Launch Amazon', async({page}) =>{
-//     console.log(chalk.red('Test started'));
-//     await page.goto('https://www.amazon.in/');
-//     await page.getByRole('searchbox', {name: 'Search Amazon'}).fill('dell laptop');
-//     await page.locator('#nav-search-submit-text').press('Enter');
-//     await page.waitForTimeout(3000);
-//     const products = page.locator('h2');
+test('Open URL and Use storageState', async({page})=>{
+    await page.goto('https://www.saucedemo.com/inventory.html');
+    await page.locator('#add-to-cart-sauce-labs-bike-light').click();
+    await console.log('product added');
+});
 
-//     const count = await products.count();
-//     console.log(chalk.green('Total products found: ' + count));
-
-//     for (let i = 0; i < count; i++) {
-//         const ariaLabel = await products.nth(i).getAttribute('aria-label');
-//         console.log(ariaLabel);
-// }
-
+// test.skip('Add product', async({page})=>{
+//     await page.locator('#add-to-cart-sauce-labs-bike-light').click();
+//     await console.log('product added');
 // })

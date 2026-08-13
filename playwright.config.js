@@ -1,5 +1,8 @@
 // @ts-check
 import { defineConfig, devices } from '@playwright/test';
+import path from 'path';
+
+const authFile = path.join(__dirname, 'playwright/.auth/user.json');
 
 /**
  * Read environment variables from file.
@@ -30,14 +33,13 @@ export default defineConfig({
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
+    // storageState: ".auth/user.json",
     screenshot: "only-on-failure",
     video: 'retain-on-failure',
-    actionTimeout : 3000,
-    /* Base URL to use in actions like `await page.goto('')`. */
+    // actionTimeout : 3000,
     // baseURL: 'http://localhost:3000',
-
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on',
+    trace: 'retain-on-failure',
     launchOptions: {
       // slowMo: 500,
       args: [
@@ -52,9 +54,15 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
+    // { name: 'setup', 
+    //   testMatch : /.*\.setup\.ts/ 
+    // },
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: { ...devices['Desktop Chrome'] ,
+                // storageState: 'playwright/.auth/user.json',
+      },
+      // dependencies: ['setup'],
       // fullyParallel: true   -- This will run test parallel in chromium only
     },
 

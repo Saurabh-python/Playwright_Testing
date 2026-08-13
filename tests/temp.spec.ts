@@ -1,6 +1,7 @@
 import { chromium, test, expect, request } from '@playwright/test';
 // import fs from 'fs';
 
+// test.describe.configure({mode: 'parallel'}) //Spec file parallel test running
 //Below test setup browser , then its context and then pages
 test.skip('Browser envoke - Google', async () => {
   const browser = await chromium.launch({headless: false});
@@ -122,4 +123,3 @@ test.skip('Nested Frame Handling', async({page})=>{
 })
 
 
-// test.describe.configure({mode: 'parallel'})

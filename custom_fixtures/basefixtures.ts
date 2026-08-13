@@ -14,7 +14,7 @@ type MyFixtures ={
     checkfinal_fixture : CheckoutFinal;
 }
 
-export const Custom_test = Base.extend<MyFixtures>({
+export const My_test = Base.extend<MyFixtures>({
     loginpage_fixture : async ({page}, use)=>{
         await use(new LoginPage(page));
     },
