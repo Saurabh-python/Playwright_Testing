@@ -10,7 +10,5 @@ setup('Add product', async({page})=>{
     await page.locator('[placeholder="Password"]').fill('secret_sauce');
     await page.locator('#login-button').click();
     await expect(page).toHaveURL('https://www.saucedemo.com/inventory.html')
-
-    
     await page.context().storageState({path: authFile})
 });
